@@ -80,31 +80,44 @@ class Stylish extends StatelessWidget {
               SizedBox(height: 10, child: const DecoratedBox(decoration: BoxDecoration(color: Colors.pink)),),
               Expanded( //將畫面分割
                 child: Container(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Container(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.all(20),
-                        itemCount: 15,
-                        itemBuilder:(context, index) {
-                          return 
-                          // Padding(padding: const EdgeInsets.all(10));
-                          Container(
-                            
-                            padding: const EdgeInsets.all(5),
-                            color: Color.fromARGB(255, 244, 204, 217),
-                            // decoration: BoxDecoration(
-                            //   border: Border.all(color: Colors.black, width: 5)
-                            // ),
-                            child: ListTile(
-                              title: Center(child: Text('123123123'),
-                              ),
-                            ),
-                          );
-                        },
+                  padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+                  child: ExpansionTile(
+                    title: Center(child: Text('TEXTTTT'),),
+                    // title: Text('TEXTTTTTT'),
+                    // subtitle: Text('123123123123'),
+                    children: <Widget>[
+                      Card(
+                          child: Container(
+                        height: 150,
+                        child: Image.network(
+                          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(90)
+                        ),
                       ),
-                    ),
+                      )
+                    ],
+                    // scrollDirection: Axis.vertical,
+                    // child: Container(
+                    //   child: ListView.builder(
+                    //     shrinkWrap: true,
+                    //     padding: const EdgeInsets.all(20),
+                    //     itemCount: 15,
+                    //     itemBuilder:(context, index) {
+                    //       return 
+                    //       Container(
+                    //         margin: EdgeInsets.all(10),//item spaceing
+                    //         padding: const EdgeInsets.all(10),
+                    //         color: Color.fromARGB(255, 244, 204, 217),
+                    //         child: ListTile(
+                    //           title: Center(child: Image.network('https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'),
+                    //           ),
+                    //         ),
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
                   ),
                 ),
               ),
