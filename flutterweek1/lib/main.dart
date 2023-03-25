@@ -2,15 +2,32 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(Stylish());
 
-class Stylish extends StatelessWidget {
+class Stylish extends StatefulWidget {
+  @override
+  State<Stylish> createState() => _StylishState();
+}
+
+class _StylishState extends State<Stylish> {
   @override
   Widget build(BuildContext context) {
     // double screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
-      title: "Class Name",
-      home: Scaffold(
-      // return Scaffold(
-        appBar: AppBar(
+      home: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth >= 600) {
+            return HorizontalView();
+          } else {
+            return VerticalView();
+          }
+        },
+      ),
+    );
+  }
+}
+
+Widget VerticalView() {
+  return Scaffold(
+       appBar: AppBar(
           backgroundColor: Colors.white,
           title: Container(
             height: 70,
@@ -41,7 +58,11 @@ class Stylish extends StatelessWidget {
                     child: Column(
                       children: [
                         ExpansionTile(
-                          title: Center(child: Text('女裝'),),
+                          title: Center(
+                            child: 
+                            Text('女裝', style: TextStyle(
+                              color: Colors.black
+                            ),),),
                           children: createContainerWithPic(),
                         ),ExpansionTile(
                           title: Center(child: Text('男裝'),),
@@ -58,14 +79,133 @@ class Stylish extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      );
+    }
+
+
+Widget HorizontalView() {
+  return Scaffold(
+   appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Container(
+            height: 70,
+            width: 200,
+            child: Image.network(
+              'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'
+            ),
+          ),
+        ),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                height: 180,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: createRowContainer(),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                   Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 25,
+                          child: Text('123'),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(
+                              children: createContainerWithPic(),
+                            ),
+                          ),
+                        )
+                      ],                    
+                    ),
+                   ),
+                   Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 25,
+                          child: Text('123'),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(
+                              children: createContainerWithPic(),
+                            ),
+                          ),
+                        )
+                      ],                    
+                    ),                   
+                   ),
+                   Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 25,
+                          child: Text('123'),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(
+                              children: createContainerWithPic(),
+                            ),
+                          ),
+                        )
+                      ],                    
+                    ),
+                   )
+                  ],
+                )
+              )
+            ],
+          ),
+        ),
+      );
+    }
+
+
+List<Widget> createContainerForList() {
+  List<Widget> containers = [];
+  // for(int i = 0; i < 1; i++) {
+    containers.add(
+      Container(
+        child: Column(
+          children: [
+            Container(
+            height: 25,
+            child: Text('123'),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+                child: Column(
+                children: createContainerWithPic(),
+                ),
+              ),
+            )
+          ],                    
+        ),
+      )
     );
-  }
+  // }
+  return containers;
 }
 
-
 List<Widget> createRowContainer() {
-  List<Widget>containers = [];
+  List<Widget> containers = [];
   for (int i = 0; i < 10; i++) {
     containers.add(
       Container(
@@ -92,14 +232,14 @@ List<Widget> createRowContainer() {
 
 List<Widget> createContainerWithPic() {
   List<Widget>containers = [];
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 5; i++) {
     containers.add(
       Container(
         decoration: BoxDecoration(
         border: Border.all(),
         borderRadius: BorderRadius.all(Radius.circular(10)),
            ),
-        height: 130,
+        height: 100,
         child: Row(
           children: [
             Container(
@@ -136,12 +276,3 @@ List<Widget> createContainerWithPic() {
   return containers;
 }
 
-// class _StylishState extends State<Stylish> {
-//   @override
-//   Widget build(BuildContext context) {
-//     // TODO: implement build
-//     return LayoutBuilder(
-//       builder: B,
-//     );
-//   }
-// }
