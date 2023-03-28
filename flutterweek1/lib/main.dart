@@ -1,3 +1,5 @@
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(Stylish());
@@ -15,7 +17,7 @@ class _StylishState extends State<Stylish> {
       home: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth >= 600) {
-            return HorizontalView();
+            return HorizontalView(context);
           } else {
             return VerticalView();
           }
@@ -83,7 +85,7 @@ Widget VerticalView() {
     }
 
 
-Widget HorizontalView() {
+Widget HorizontalView(BuildContext context) {
   return Scaffold(
    appBar: AppBar(
           backgroundColor: Colors.white,
@@ -115,65 +117,89 @@ Widget HorizontalView() {
                   children: [
                    SizedBox(width: 10,),
                    Expanded(
-                     child: Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 25,
-                            child: Text('123'),
-                          ),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                children: createContainerWithPic(),
-                              ),
+                     child: GestureDetector(
+                      onTap: () {
+                       Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) => SecondPage()),
+                       );
+                     },
+                       child: Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 25,
+                              child: Text('123'),
                             ),
-                          )
-                        ],                    
-                      ),
+                            Expanded(
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Column(
+                                  children: createContainerWithPic(),
+                                ),
+                              ),
+                            )
+                          ],                    
+                        ),
+                       ),
                      ),
                    ),
                    SizedBox(width: 10,),
                    Expanded(
-                     child: Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 25,
-                            child: Text('123'),
-                          ),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                children: createContainerWithPic(),
-                              ),
+                     child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (context) => SecondPage(),)
+                          );
+                      },
+                       child: Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 25,
+                              child: Text('123'),
                             ),
-                          )
-                        ],                    
-                      ),                   
+                            Expanded(
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Column(
+                                  children: createContainerWithPic(),
+                                ),
+                              ),
+                            )
+                          ],                    
+                        ),                   
+                       ),
                      ),
                    ),
                    SizedBox(width: 10,),
                    Expanded(
-                     child: Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 25,
-                            child: Text('123'),
-                          ),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                children: createContainerWithPic(),
-                              ),
+                     child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) => SecondPage(),)
+                        );
+                      },
+                       child: Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 25,
+                              child: Text('123'),
                             ),
-                          )
-                        ],                    
-                      ),
+                            Expanded(
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Column(
+                                  children: createContainerWithPic(),
+                                ),
+                              ),
+                            )
+                          ],                    
+                        ),
+                       ),
                      ),
                    ),
                    SizedBox(width: 10,),
@@ -186,33 +212,6 @@ Widget HorizontalView() {
       );
     }
 
-
-List<Widget> createContainerForList() {
-  List<Widget> containers = [];
-  // for(int i = 0; i < 1; i++) {
-    containers.add(
-      Container(
-        child: Column(
-          children: [
-            Container(
-            height: 25,
-            child: Text('123'),
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-                child: Column(
-                children: createContainerWithPic(),
-                ),
-              ),
-            )
-          ],                    
-        ),
-      )
-    );
-  // }
-  return containers;
-}
 
 List<Widget> createRowContainer() {
   List<Widget> containers = [];
@@ -244,45 +243,67 @@ List<Widget> createContainerWithPic() {
   List<Widget>containers = [];
   for (int i = 0; i < 5; i++) {
     containers.add(
-      Container(
-        decoration: BoxDecoration(
-        border: Border.all(),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-           ),
-        height: 100,
-        child: Row(
-          children: [
-            Container(
-              height: 130,
-              width: 100,
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), 
-                  bottomLeft: Radius.circular(10)
-                  ),
-                child: FittedBox(
-                  child: Image.network(
-                  'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
-                   ),
-                  fit: BoxFit.fill,
+        Container(
+          decoration: BoxDecoration(
+          border: Border.all(),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+             ),
+          height: 100,
+          child: Row(
+            children: [
+              Container(
+                height: 130,
+                width: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10), 
+                    bottomLeft: Radius.circular(10)
+                    ),
+                  child: FittedBox(
+                    child: Image.network(
+                    'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
+                     ),
+                    fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('1231233123'),
-                Text('4645645644')
-              ],
-            )
-          ],
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('1231233'),
+                  Text('4645644')
+                ],
+              )
+            ],
+          ),
         ),
-      ),
+      // ),
     );
     containers.add(
       SizedBox(height: 5,),
     );
   }
   return containers;
+}
+
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+    appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Container(
+            height: 70,
+            width: 200,
+            child: Image.network(
+              'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'
+            ),
+          ),
+        ),
+    );
+  }
+
 }
 
