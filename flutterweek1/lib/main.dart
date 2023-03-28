@@ -113,60 +113,70 @@ Widget HorizontalView() {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                   Container(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 25,
-                          child: Text('123'),
-                        ),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: Column(
-                              children: createContainerWithPic(),
-                            ),
+                   SizedBox(width: 10,),
+                   Expanded(
+                     child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 25,
+                            child: Text('123'),
                           ),
-                        )
-                      ],                    
-                    ),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: createContainerWithPic(),
+                              ),
+                            ),
+                          )
+                        ],                    
+                      ),
+                     ),
                    ),
-                   Container(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 25,
-                          child: Text('123'),
-                        ),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: Column(
-                              children: createContainerWithPic(),
-                            ),
+                   SizedBox(width: 10,),
+                   Expanded(
+                     child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 25,
+                            child: Text('123'),
                           ),
-                        )
-                      ],                    
-                    ),                   
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: createContainerWithPic(),
+                              ),
+                            ),
+                          )
+                        ],                    
+                      ),                   
+                     ),
                    ),
-                   Container(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 25,
-                          child: Text('123'),
-                        ),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: Column(
-                              children: createContainerWithPic(),
-                            ),
+                   SizedBox(width: 10,),
+                   Expanded(
+                     child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 25,
+                            child: Text('123'),
                           ),
-                        )
-                      ],                    
-                    ),
-                   )
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: createContainerWithPic(),
+                              ),
+                            ),
+                          )
+                        ],                    
+                      ),
+                     ),
+                   ),
+                   SizedBox(width: 10,),
                   ],
                 )
               )
