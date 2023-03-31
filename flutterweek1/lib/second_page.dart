@@ -68,7 +68,7 @@ class _SecondPageState extends State<SecondPage> {
                   size.width >= 600
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: createTopDetailColum(widget.item),
+                          children: createTopDetailColum(widget.item, 260),
                         )
                       : SizedBox.shrink(),
                 ],
@@ -78,7 +78,7 @@ class _SecondPageState extends State<SecondPage> {
                       width: 350,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: createTopDetailColum(widget.item),
+                        children: createTopDetailColum(widget.item, 500),
                       ),
                     )
                   : SizedBox.shrink(),
@@ -142,7 +142,7 @@ class _SecondPageState extends State<SecondPage> {
     );
   }
 
-  List<Widget> createTopDetailColum(itemData item) {
+  List<Widget> createTopDetailColum(itemData item, double underlineWidth) {
     return [
       Text(
         'Uniqlo 特級輕羽絨',
@@ -160,7 +160,7 @@ class _SecondPageState extends State<SecondPage> {
         height: 10,
       ),
       HorizontalLine(
-        dashedWidth: 250,
+        dashedWidth: underlineWidth,
         dashedHeight: 1,
         color: Color.fromARGB(255, 160, 164, 166),
       ),
@@ -206,7 +206,7 @@ class _SecondPageState extends State<SecondPage> {
       ),
       SizedBox(
         height: 45,
-        width: 260,
+        width: underlineWidth,
         child: TextButton(
           onPressed: () {},
           child: Text(
