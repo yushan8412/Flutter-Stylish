@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
 import 'data_model.dart';
 import 'underline_view.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class SecondPage extends StatefulWidget {
   final itemData item;
@@ -198,7 +199,7 @@ class _SecondPageState extends State<SecondPage> {
         height: 25,
       ),
       Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('數量｜'),
           IconButton(
@@ -288,7 +289,7 @@ class _SecondPageState extends State<SecondPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('123123123'),
+          GradientText('123123123', colors: [Colors.blue, Colors.green]),
           Expanded(
             child: HorizontalLine(
               dashedWidth: 500,
