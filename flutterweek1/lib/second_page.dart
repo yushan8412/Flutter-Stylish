@@ -199,7 +199,38 @@ class _SecondPageState extends State<SecondPage> {
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text('數量｜')],
+        children: [
+          Text('數量｜'),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.remove),
+            iconSize: 20,
+          ),
+          SizedBox(
+            width: 50,
+            height: 25,
+            child: TextField(
+              decoration:
+                  InputDecoration(border: OutlineInputBorder(), labelText: '1'),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(5),
+            width: 20,
+            height: 20,
+            decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.black),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 10,
+              ),
+            ),
+          )
+        ],
       ),
       SizedBox(
         height: 20,
