@@ -199,37 +199,65 @@ class _SecondPageState extends State<SecondPage> {
         height: 25,
       ),
       Row(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('數量｜'),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.remove),
-            iconSize: 20,
-          ),
           SizedBox(
-            width: 50,
-            height: 25,
-            child: TextField(
-              decoration:
-                  InputDecoration(border: OutlineInputBorder(), labelText: '1'),
-              textAlign: TextAlign.center,
-            ),
+            width: 10,
           ),
           Container(
-            margin: EdgeInsets.all(5),
             width: 20,
             height: 20,
             decoration:
                 BoxDecoration(shape: BoxShape.circle, color: Colors.black),
+            // color: Colors.black,
             child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 10,
-              ),
+                color: Colors.amber, // 更改按鈕背景色
+                splashColor: Colors.white,
+                highlightColor: Colors.white,
+                onPressed: () {},
+                iconSize: 15,
+                padding: EdgeInsets.all(2),
+                icon: Icon(
+                  Icons.remove,
+                  color: Colors.white,
+                )),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          SizedBox(
+            width: 135,
+            height: 25,
+            child: TextField(
+              textAlign: TextAlign.center, // 設置文字置中
+              decoration: InputDecoration(
+                  hintText: '1',
+                  contentPadding: EdgeInsets.symmetric(
+                      vertical: 8.0, horizontal: 10.0), // 設置內邊距
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
             ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Container(
+            width: 20,
+            height: 20,
+            decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.black),
+            // color: Colors.black,
+            child: IconButton(
+                color: Colors.amber, // 更改按鈕背景色
+                splashColor: Colors.white,
+                highlightColor: Colors.white,
+                onPressed: () {},
+                iconSize: 15,
+                padding: EdgeInsets.all(2),
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                )),
           )
         ],
       ),
