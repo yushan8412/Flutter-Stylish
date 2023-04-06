@@ -15,8 +15,20 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   int selectedIndex = -1;
+  int selectedAmount = 1;
+  final tfController = TextEditingController();
 
   @override
+  void dispose() {
+    tfController.dispose();
+    super.dispose();
+  }
+
+  void initState() {
+    super.initState();
+    tfController.text = '1';
+  }
+
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
@@ -214,7 +226,10 @@ class _SecondPageState extends State<SecondPage> {
                 color: Colors.amber, // 更改按鈕背景色
                 splashColor: Colors.white,
                 highlightColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  selectedAmount -= 1;
+                  _updateText();
+                },
                 iconSize: 15,
                 padding: EdgeInsets.all(2),
                 icon: Icon(
@@ -229,9 +244,9 @@ class _SecondPageState extends State<SecondPage> {
             width: 135,
             height: 25,
             child: TextField(
+              controller: tfController,
               textAlign: TextAlign.center, // 設置文字置中
               decoration: InputDecoration(
-                  hintText: '1',
                   contentPadding: EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 10.0), // 設置內邊距
                   border: OutlineInputBorder(
@@ -246,12 +261,15 @@ class _SecondPageState extends State<SecondPage> {
             height: 20,
             decoration:
                 BoxDecoration(shape: BoxShape.circle, color: Colors.black),
-            // color: Colors.black,
             child: IconButton(
                 color: Colors.amber, // 更改按鈕背景色
                 splashColor: Colors.white,
                 highlightColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  selectedAmount += 1;
+                  _updateText();
+                  print(selectedAmount);
+                },
                 iconSize: 15,
                 padding: EdgeInsets.all(2),
                 icon: Icon(
@@ -345,6 +363,12 @@ class _SecondPageState extends State<SecondPage> {
       ),
       createPicBox(widget.item.image),
     ];
+  }
+
+  void _updateText() {
+    setState(() {
+      tfController.text = selectedAmount.toString();
+    });
   }
 }
 
