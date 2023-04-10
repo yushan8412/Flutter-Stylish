@@ -1,9 +1,6 @@
- // Description：横线
+ // Description：橫線
 
 import 'package:flutter/material.dart';
-import 'second_page.dart';
-
-
 
 class HorizontalLine extends StatelessWidget {
 final double dashedWidth;

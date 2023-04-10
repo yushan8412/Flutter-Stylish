@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'vertical_view.dart';
 import 'horizontal_view.dart';
-import 'data_model.dart';
 
 void main() => runApp(Stylish());
 

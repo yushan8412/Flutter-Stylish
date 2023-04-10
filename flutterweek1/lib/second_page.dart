@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
-import 'data_model.dart';
+import 'amount_btn.dart';
 import 'underline_view.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
@@ -14,8 +14,10 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
-  int selectedIndex = -1;
   int selectedAmount = 1;
+  // textField 裡面的文字
+
+  int selectedIndex = -1;
   final tfController = TextEditingController();
 
   @override
@@ -24,6 +26,7 @@ class _SecondPageState extends State<SecondPage> {
     super.dispose();
   }
 
+  @override
   void initState() {
     super.initState();
     tfController.text = '1';
@@ -210,75 +213,7 @@ class _SecondPageState extends State<SecondPage> {
       SizedBox(
         height: 25,
       ),
-      Row(
-        children: [
-          Text('數量｜'),
-          SizedBox(
-            width: 10,
-          ),
-          Container(
-            width: 20,
-            height: 20,
-            decoration:
-                BoxDecoration(shape: BoxShape.circle, color: Colors.black),
-            // color: Colors.black,
-            child: IconButton(
-                color: Colors.amber, // 更改按鈕背景色
-                splashColor: Colors.white,
-                highlightColor: Colors.white,
-                onPressed: () {
-                  selectedAmount -= 1;
-                  _updateText();
-                },
-                iconSize: 15,
-                padding: EdgeInsets.all(2),
-                icon: Icon(
-                  Icons.remove,
-                  color: Colors.white,
-                )),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          SizedBox(
-            width: 135,
-            height: 25,
-            child: TextField(
-              controller: tfController,
-              textAlign: TextAlign.center, // 設置文字置中
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 10.0), // 設置內邊距
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black))),
-            ),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Container(
-            width: 20,
-            height: 20,
-            decoration:
-                BoxDecoration(shape: BoxShape.circle, color: Colors.black),
-            child: IconButton(
-                color: Colors.amber, // 更改按鈕背景色
-                splashColor: Colors.white,
-                highlightColor: Colors.white,
-                onPressed: () {
-                  selectedAmount += 1;
-                  _updateText();
-                  print(selectedAmount);
-                },
-                iconSize: 15,
-                padding: EdgeInsets.all(2),
-                icon: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                )),
-          )
-        ],
-      ),
+      amountAddBtn(),
       SizedBox(
         height: 20,
       ),
@@ -367,6 +302,7 @@ class _SecondPageState extends State<SecondPage> {
 
   void _updateText() {
     setState(() {
+      //寫入畫面有需要更新的部分
       tfController.text = selectedAmount.toString();
     });
   }
