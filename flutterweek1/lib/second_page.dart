@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
 import 'component/amount_btn.dart';
 import 'component/underline_view.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+// import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'component/detail_bottom.dart';
 
 class SecondPage extends StatefulWidget {
   final Product item;
@@ -135,14 +136,14 @@ class _SecondPageState extends State<SecondPage> {
     );
   }
 
-  Image createPicBox(String url) {
-    return Image.network(
-      url,
-      width: 570,
-      height: 330,
-      fit: BoxFit.cover,
-    );
-  }
+  // Image createPicBox(String url) {
+  //   return Image.network(
+  //     url,
+  //     width: 570,
+  //     height: 330,
+  //     fit: BoxFit.cover,
+  //   );
+  // }
 
   List<Widget> createTopDetailColum(Product item, double underlineWidth) {
     return [
@@ -247,39 +248,39 @@ class _SecondPageState extends State<SecondPage> {
     ];
   }
 
-  List<Widget> createBottomDetailColum(Product item) {
-    return [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GradientText('細部說明', colors: [Colors.blue, Colors.green]),
-          Expanded(
-            child: HorizontalLine(
-              dashedWidth: 500,
-              dashedHeight: 1,
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
-      Container(
-        width: 570,
-        child: Text(item.story),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      createPicBox(widget.item.mainImage),
-      SizedBox(
-        height: 15,
-      ),
-      createPicBox(widget.item.mainImage),
-      SizedBox(
-        height: 15,
-      ),
-      createPicBox(widget.item.mainImage),
-    ];
-  }
+  // List<Widget> createBottomDetailColum(Product item) {
+  //   return [
+  //     Row(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: [
+  //         GradientText('細部說明', colors: [Colors.blue, Colors.green]),
+  //         Expanded(
+  //           child: HorizontalLine(
+  //             dashedWidth: 500,
+  //             dashedHeight: 1,
+  //             color: Colors.black,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //     Container(
+  //       width: 570,
+  //       child: Text(item.story),
+  //     ),
+  //     SizedBox(
+  //       height: 15,
+  //     ),
+  //     createPicBox(widget.item.mainImage),
+  //     SizedBox(
+  //       height: 15,
+  //     ),
+  //     createPicBox(widget.item.mainImage),
+  //     SizedBox(
+  //       height: 15,
+  //     ),
+  //     createPicBox(widget.item.mainImage),
+  //   ];
+  // }
 }
 
 SizedBox buildBtnWithColorBox(Color color) {
