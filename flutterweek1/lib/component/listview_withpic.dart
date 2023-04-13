@@ -32,10 +32,18 @@ Widget createlistView(List<Product> itemsData) {
                         child: Image.network(itemsData[index].mainImage),
                       ),
                     )),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text(itemsData[index].title), Text('00000000')],
+                SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(itemsData[index].title),
+                      Text('NT\$ ' + itemsData[index].price.toString())
+                    ],
+                  ),
                 )
               ],
             ),

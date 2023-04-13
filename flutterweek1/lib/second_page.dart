@@ -92,7 +92,7 @@ class _SecondPageState extends State<SecondPage> {
                       width: 570,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: createBottomDetailColum(),
+                        children: createBottomDetailColum(widget.item),
                       ),
                     )
                   : SizedBox.shrink(),
@@ -101,7 +101,7 @@ class _SecondPageState extends State<SecondPage> {
                       width: 350,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: createBottomDetailColum(),
+                        children: createBottomDetailColum(widget.item),
                       ),
                     )
                   : SizedBox.shrink(),
@@ -140,17 +140,17 @@ class _SecondPageState extends State<SecondPage> {
       url,
       width: 570,
       height: 330,
-      fit: BoxFit.fill,
+      fit: BoxFit.cover,
     );
   }
 
   List<Widget> createTopDetailColum(Product item, double underlineWidth) {
     return [
       Text(
-        'Uniqlo 特級輕羽絨',
+        item.title,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       ),
-      Text(item.title),
+      Text(item.id.toString()),
       SizedBox(
         height: 15,
       ),
@@ -225,38 +225,34 @@ class _SecondPageState extends State<SecondPage> {
         height: 5,
       ),
       Text(
-        '12312312312312',
+        item.note,
         style: TextStyle(fontSize: 16),
       ),
       Text(
-        '12312312312312',
+        item.description,
         style: TextStyle(fontSize: 16),
       ),
       Text(
-        '12312312312312',
+        '產地：' + item.place,
         style: TextStyle(fontSize: 16),
       ),
       Text(
-        '12312312312312',
+        '材質：' + item.texture,
         style: TextStyle(fontSize: 16),
       ),
       Text(
-        '12312312312312',
-        style: TextStyle(fontSize: 16),
-      ),
-      Text(
-        '12312312312312',
+        '洗滌方式：' + item.wash,
         style: TextStyle(fontSize: 16),
       ),
     ];
   }
 
-  List<Widget> createBottomDetailColum() {
+  List<Widget> createBottomDetailColum(Product item) {
     return [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GradientText('123123123', colors: [Colors.blue, Colors.green]),
+          GradientText('細部說明', colors: [Colors.blue, Colors.green]),
           Expanded(
             child: HorizontalLine(
               dashedWidth: 500,
@@ -268,8 +264,7 @@ class _SecondPageState extends State<SecondPage> {
       ),
       Container(
         width: 570,
-        child: Text(
-            '測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字測試文字'),
+        child: Text(item.story),
       ),
       SizedBox(
         height: 15,

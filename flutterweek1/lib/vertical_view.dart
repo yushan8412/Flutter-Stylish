@@ -1,11 +1,38 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'data_model.dart';
-import 'horizontal_view.dart';
-import 'second_page.dart';
+import 'component/expansiontile_list.dart';
+import 'data_manager.dart';
 
-class VerticalView extends StatelessWidget {
+class VerticalView extends StatefulWidget {
   const VerticalView({super.key});
+
+  @override
+  State<VerticalView> createState() => _VerticalViewState();
+}
+
+class _VerticalViewState extends State<VerticalView> {
+  final apiService = ApiService();
+
+  List<Product> womenDatas = [];
+  List<Product> menDatas = [];
+  List<Product> accessoriesDatas = [];
+
+  @override
+  void initState() {
+    super.initState();
+    Future.wait([
+      apiService.fetchAllProducts('women'),
+      apiService.fetchAllProducts('men'),
+      apiService.fetchAllProducts('accessories'),
+    ]).then((results) {
+      setState(() {
+        womenDatas = results[0];
+        menDatas = results[1];
+        accessoriesDatas = results[2];
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +56,9 @@ class VerticalView extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: Column(
                     children: [
-                      _buildExpansionTile('女裝', manItems),
-                      _buildExpansionTile('男裝', manItems),
-                      _buildExpansionTile('配件', manItems),
+                      buildExpansionTile('女裝', womenDatas),
+                      buildExpansionTile('男裝', menDatas),
+                      buildExpansionTile('配件', accessoriesDatas),
                     ],
                   ),
                 ),
@@ -73,75 +100,5 @@ class VerticalView extends StatelessWidget {
       );
     }
     return rowContainers;
-  }
-
-  Widget _buildExpansionTile(String title, List<Product> items) {
-    return ExpansionTile(
-      title: Center(
-        child: Text(
-          title,
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-      children: [
-        ListView.separated(
-          itemCount: items.length,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SecondPage(
-                      item: items[index],
-                    ),
-                  ),
-                );
-              },
-              child: Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 130,
-                      width: 100,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                        ),
-                        child: FittedBox(
-                          fit: BoxFit.fill,
-                          child: Image.network(
-                            items[index].mainImage,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(items[index].title),
-                        Text('010101010101'),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-          separatorBuilder: (context, _) => SizedBox(
-            height: 8,
-          ),
-          // itemCount: items.length,
-        ),
-      ],
-    );
   }
 }

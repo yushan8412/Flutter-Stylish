@@ -3,9 +3,37 @@ import 'package:flutterweek1/data_model.dart';
 import 'main.dart';
 import 'second_page.dart';
 import 'component/listview_withpic.dart';
+import 'data_manager.dart';
 
-class HorizontalView extends StatelessWidget {
+class HorizontalView extends StatefulWidget {
   HorizontalView(BuildContext context);
+
+  @override
+  State<HorizontalView> createState() => _HorizontalViewState();
+}
+
+class _HorizontalViewState extends State<HorizontalView> {
+  final apiService = ApiService();
+
+  List<Product> womenDatas = [];
+  List<Product> menDatas = [];
+  List<Product> accessoriesDatas = [];
+
+  @override
+  void initState() {
+    super.initState();
+    Future.wait([
+      apiService.fetchAllProducts('women'),
+      apiService.fetchAllProducts('men'),
+      apiService.fetchAllProducts('accessories'),
+    ]).then((results) {
+      setState(() {
+        womenDatas = results[0];
+        menDatas = results[1];
+        accessoriesDatas = results[2];
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +76,7 @@ class HorizontalView extends StatelessWidget {
                           height: 25,
                           child: Text('女裝'),
                         ),
-                        Expanded(child: createlistView(manItems)),
+                        Expanded(child: createlistView(womenDatas)),
                       ],
                     ),
                   ),
@@ -64,7 +92,7 @@ class HorizontalView extends StatelessWidget {
                           height: 25,
                           child: Text('男裝'),
                         ),
-                        Expanded(child: createlistView(manItems)),
+                        Expanded(child: createlistView(menDatas)),
                       ],
                     ),
                   ),
@@ -80,7 +108,7 @@ class HorizontalView extends StatelessWidget {
                         height: 25,
                         child: Text('飾品'),
                       ),
-                      Expanded(child: createlistView(manItems)),
+                      Expanded(child: createlistView(accessoriesDatas)),
                     ],
                   ),
                 ),

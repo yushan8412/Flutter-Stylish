@@ -1,15 +1,3 @@
-class itemData {
-  String name;
-  String image;
-  int price;
-  List<String> size;
-  itemData(
-      {required this.name,
-      required this.image,
-      required this.price,
-      required this.size});
-}
-
 class ProductData {
   final String title;
   final List<Product> products;
@@ -114,157 +102,81 @@ class Variant {
   }
 }
 
-List<itemData> womanItems = [
-  itemData(
-      name: 'QQQ',
-      image:
-          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
-      price: 666,
-      size: ['S', 'M', 'L']),
-  itemData(
-      name: 'WWW',
-      image:
-          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
-      price: 666,
-      size: ['S', 'M', 'L']),
-  itemData(
-      name: 'EEE',
-      image:
-          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
-      price: 666,
-      size: ['S', 'M', 'L']),
-  itemData(
-      name: 'AAA',
-      image:
-          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
-      price: 666,
-      size: ['S', 'M', 'L']),
-  itemData(
-      name: 'CCC',
-      image:
-          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
-      price: 666,
-      size: ['S', 'M', 'L']),
-];
-
-List<ProductData> itemsData = [
-  ProductData(title: 'new product', products: [
-    Product(
-        id: 1,
-        category: 'man',
-        title: '大衣',
-        description: '123123',
-        price: 666,
-        texture: '123123',
-        wash: '12313',
-        place: 'place',
-        note: 'note',
-        story: 'story',
-        colors: [ItemColors(code: 'code', name: 'name')],
-        sizes: ['S', 'M', 'L'],
-        variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
-        mainImage:
-            'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
-        images: [
-          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg'
-        ]),
-    Product(
-        id: 1,
-        category: 'man',
-        title: '大衣',
-        description: '123123',
-        price: 666,
-        texture: '123123',
-        wash: '12313',
-        place: 'place',
-        note: 'note',
-        story: 'story',
-        colors: [ItemColors(code: 'code', name: 'name')],
-        sizes: ['S', 'M', 'L'],
-        variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
-        mainImage:
-            'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
-        images: [
-          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg'
-        ]),
-    Product(
-        id: 1,
-        category: 'man',
-        title: '大衣',
-        description: '123123',
-        price: 666,
-        texture: '123123',
-        wash: '12313',
-        place: 'place',
-        note: 'note',
-        story: 'story',
-        colors: [ItemColors(code: 'code', name: 'name')],
-        sizes: ['S', 'M', 'L'],
-        variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
-        mainImage:
-            'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
-        images: [
-          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
-        ]),
-  ])
-];
-
 List<Product> manItems = [
-    Product(
-        id: 1,
-        category: 'man',
-        title: '大衣',
-        description: '123123',
-        price: 666,
-        texture: '123123',
-        wash: '12313',
-        place: 'place',
-        note: 'note',
-        story: 'story',
-        colors: [ItemColors(code: 'code', name: 'name')],
-        sizes: ['S', 'M', 'L'],
-        variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
-        mainImage:
-            'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
-        images: [
-          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg'
-        ]),
-    Product(
-        id: 1,
-        category: 'man',
-        title: '大衣',
-        description: '123123',
-        price: 666,
-        texture: '123123',
-        wash: '12313',
-        place: 'place',
-        note: 'note',
-        story: 'story',
-        colors: [ItemColors(code: 'code', name: 'name')],
-        sizes: ['S', 'M', 'L'],
-        variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
-        mainImage:
-            'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
-        images: [
-          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg'
-        ]),
-    Product(
-        id: 1,
-        category: 'man',
-        title: '大衣',
-        description: '123123',
-        price: 666,
-        texture: '123123',
-        wash: '12313',
-        place: 'place',
-        note: 'note',
-        story: 'story',
-        colors: [ItemColors(code: 'code', name: 'name')],
-        sizes: ['S', 'M', 'L'],
-        variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
-        mainImage:
-            'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
-        images: [
-          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
-        ]),
+  Product(
+      id: 1,
+      category: 'man',
+      title: '大衣',
+      description: '123123',
+      price: 666,
+      texture: '123123',
+      wash: '12313',
+      place: 'place',
+      note: 'note',
+      story: 'story',
+      colors: [ItemColors(code: 'code', name: 'name')],
+      sizes: ['S', 'M', 'L'],
+      variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
+      mainImage:
+          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
+      images: [
+        'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg'
+      ]),
+  Product(
+      id: 1,
+      category: 'man',
+      title: '大衣',
+      description: '123123',
+      price: 666,
+      texture: '123123',
+      wash: '12313',
+      place: 'place',
+      note: 'note',
+      story: 'story',
+      colors: [ItemColors(code: 'code', name: 'name')],
+      sizes: ['XS', 'S', 'M', 'L'],
+      variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
+      mainImage:
+          'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg',
+      images: [
+        'https://www.settour.com.tw/ss_img/info/location/PAR/R0/PAR0000115/PAR0000115_64041.jpg'
+      ]),
+  Product(
+      id: 1,
+      category: 'man',
+      title: '大衣',
+      description: '123123',
+      price: 666,
+      texture: '123123',
+      wash: '12313',
+      place: 'place',
+      note: 'note',
+      story: 'story',
+      colors: [ItemColors(code: 'code', name: 'name')],
+      sizes: ['S', 'M', 'L'],
+      variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
+      mainImage:
+          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
+      images: [
+        'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
+      ]),
+  Product(
+      id: 1,
+      category: 'man',
+      title: '大衣',
+      description: '123123',
+      price: 666,
+      texture: '123123',
+      wash: '12313',
+      place: 'place',
+      note: 'note',
+      story: 'story',
+      colors: [ItemColors(code: 'code', name: 'name')],
+      sizes: ['S', 'M', 'L'],
+      variants: [Variant(colorCode: 'colorCode', size: 'size', stock: 5)],
+      mainImage:
+          'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q',
+      images: [
+        'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'
+      ]),
 ];
