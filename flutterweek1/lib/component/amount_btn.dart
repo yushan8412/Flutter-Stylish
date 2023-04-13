@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutterweek1/data_manager.dart';
 
 class amountAddBtn extends StatefulWidget {
   @override
@@ -20,9 +20,10 @@ class _amountAddBtnState extends State<amountAddBtn> {
   @override
   void initState() {
     super.initState();
-    tfController.text = '1';
+    tfController.text = selectedAmount.toString();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
@@ -81,6 +82,7 @@ class _amountAddBtnState extends State<amountAddBtn> {
               onPressed: () {
                 selectedAmount += 1;
                 _updateText();
+                getHttp();
               },
               iconSize: 15,
               padding: EdgeInsets.all(2),

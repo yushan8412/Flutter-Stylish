@@ -1,37 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
-import 'amount_btn.dart';
-import 'underline_view.dart';
+import 'component/amount_btn.dart';
+import 'component/underline_view.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class SecondPage extends StatefulWidget {
-  final itemData item;
+  final Product item;
 
-  const SecondPage({required this.item});
+  const SecondPage({super.key, required this.item});
 
   @override
   State<SecondPage> createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
-  int selectedAmount = 1;
-  // textField 裡面的文字
-
   int selectedIndex = -1;
   final tfController = TextEditingController();
 
   @override
-  void dispose() {
-    tfController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    tfController.text = '1';
-  }
-
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
@@ -52,7 +38,7 @@ class _SecondPageState extends State<SecondPage> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -64,7 +50,7 @@ class _SecondPageState extends State<SecondPage> {
                           width: 300,
                           child: FittedBox(
                             fit: BoxFit.fill,
-                            child: Image.network(widget.item.image),
+                            child: Image.network(widget.item.mainImage),
                           ),
                         )
                       : SizedBox.shrink(),
@@ -74,7 +60,7 @@ class _SecondPageState extends State<SecondPage> {
                           width: 350,
                           child: FittedBox(
                             fit: BoxFit.fill,
-                            child: Image.network(widget.item.image),
+                            child: Image.network(widget.item.mainImage),
                           ),
                         )
                       : SizedBox.shrink(),
@@ -97,8 +83,8 @@ class _SecondPageState extends State<SecondPage> {
                         children: createTopDetailColum(widget.item, 500),
                       ),
                     )
-                  : SizedBox.shrink(),
-              SizedBox(
+                  : const SizedBox.shrink(),
+              const SizedBox(
                 height: 20,
               ),
               size.width >= 600
@@ -158,13 +144,13 @@ class _SecondPageState extends State<SecondPage> {
     );
   }
 
-  List<Widget> createTopDetailColum(itemData item, double underlineWidth) {
+  List<Widget> createTopDetailColum(Product item, double underlineWidth) {
     return [
       Text(
         'Uniqlo 特級輕羽絨',
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       ),
-      Text(item.name),
+      Text(item.title),
       SizedBox(
         height: 15,
       ),
@@ -172,7 +158,7 @@ class _SecondPageState extends State<SecondPage> {
         'NT\$ ' + (item.price).toString(),
         style: TextStyle(fontSize: 18),
       ),
-      SizedBox(
+      const SizedBox(
         height: 10,
       ),
       HorizontalLine(
@@ -288,23 +274,16 @@ class _SecondPageState extends State<SecondPage> {
       SizedBox(
         height: 15,
       ),
-      createPicBox(widget.item.image),
+      createPicBox(widget.item.mainImage),
       SizedBox(
         height: 15,
       ),
-      createPicBox(widget.item.image),
+      createPicBox(widget.item.mainImage),
       SizedBox(
         height: 15,
       ),
-      createPicBox(widget.item.image),
+      createPicBox(widget.item.mainImage),
     ];
-  }
-
-  void _updateText() {
-    setState(() {
-      //寫入畫面有需要更新的部分
-      tfController.text = selectedAmount.toString();
-    });
   }
 }
 

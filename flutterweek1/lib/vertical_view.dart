@@ -5,6 +5,8 @@ import 'horizontal_view.dart';
 import 'second_page.dart';
 
 class VerticalView extends StatelessWidget {
+  const VerticalView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +29,9 @@ class VerticalView extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: Column(
                     children: [
-                      _buildExpansionTile('女裝', womanItems),
-                      _buildExpansionTile('男裝', womanItems),
-                      _buildExpansionTile('配件', womanItems),
+                      _buildExpansionTile('女裝', manItems),
+                      _buildExpansionTile('男裝', manItems),
+                      _buildExpansionTile('配件', manItems),
                     ],
                   ),
                 ),
@@ -73,7 +75,7 @@ class VerticalView extends StatelessWidget {
     return rowContainers;
   }
 
-  Widget _buildExpansionTile(String title, List<itemData> items) {
+  Widget _buildExpansionTile(String title, List<Product> items) {
     return ExpansionTile(
       title: Center(
         child: Text(
@@ -83,6 +85,7 @@ class VerticalView extends StatelessWidget {
       ),
       children: [
         ListView.separated(
+          itemCount: items.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -115,7 +118,7 @@ class VerticalView extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.fill,
                           child: Image.network(
-                            items[index].image,
+                            items[index].mainImage,
                           ),
                         ),
                       ),
@@ -124,7 +127,7 @@ class VerticalView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(items[index].name),
+                        Text(items[index].title),
                         Text('010101010101'),
                       ],
                     ),
@@ -136,10 +139,9 @@ class VerticalView extends StatelessWidget {
           separatorBuilder: (context, _) => SizedBox(
             height: 8,
           ),
-          itemCount: items.length,
+          // itemCount: items.length,
         ),
       ],
     );
   }
 }
-
