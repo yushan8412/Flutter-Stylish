@@ -3,6 +3,9 @@ import 'package:flutterweek1/data_manager.dart';
 import 'package:flutterweek1/data_model.dart';
 
 class amountAddBtn extends StatefulWidget {
+  final Product item;
+  const amountAddBtn({super.key, required this.item});
+
   @override
   State<amountAddBtn> createState() => _amountAddBtnState();
 }
@@ -10,10 +13,9 @@ class amountAddBtn extends StatefulWidget {
 class _amountAddBtnState extends State<amountAddBtn> {
   int selectedAmount = 1;
   // textField 裡面的文字
-  final apiService = ApiService();
-  List<Product> productsData = [];
 
   final tfController = TextEditingController();
+
   @override
   void dispose() {
     tfController.dispose();
@@ -24,7 +26,7 @@ class _amountAddBtnState extends State<amountAddBtn> {
   void initState() {
     super.initState();
     tfController.text = selectedAmount.toString();
-    // apiService.fetchAllProducts(productsData);
+    tfController.text = widget.item.variants[0].stock.toString();
   }
 
   @override

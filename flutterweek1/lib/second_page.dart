@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
 import 'component/amount_btn.dart';
 import 'component/underline_view.dart';
-// import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'component/detail_bottom.dart';
+import 'component/colorbox_btn.dart';
+import 'component/detail_top_widget.dart';
 
 class SecondPage extends StatefulWidget {
   final Product item;
@@ -69,9 +70,9 @@ class _SecondPageState extends State<SecondPage> {
                     width: 15,
                   ),
                   size.width >= 600
-                      ? Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: createTopDetailColum(widget.item, 260),
+                      ? detailTopWidget(
+                          item: widget.item,
+                          underlineWidth: 260,
                         )
                       : SizedBox.shrink(),
                 ],
@@ -79,9 +80,9 @@ class _SecondPageState extends State<SecondPage> {
               size.width < 600
                   ? Container(
                       width: 350,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: createTopDetailColum(widget.item, 500),
+                      child: detailTopWidget(
+                        item: widget.item,
+                        underlineWidth: 500,
                       ),
                     )
                   : const SizedBox.shrink(),
@@ -112,187 +113,4 @@ class _SecondPageState extends State<SecondPage> {
       ),
     );
   }
-
-//Function
-  SizedBox buildBtnwithText(int index, String text) {
-    return SizedBox(
-      height: 25,
-      width: 40,
-      child: ElevatedButton(
-        onPressed: () {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        style: ElevatedButton.styleFrom(
-            backgroundColor: selectedIndex == index ? Colors.blue : Colors.grey,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18))),
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 10),
-        ),
-      ),
-    );
-  }
-
-  // Image createPicBox(String url) {
-  //   return Image.network(
-  //     url,
-  //     width: 570,
-  //     height: 330,
-  //     fit: BoxFit.cover,
-  //   );
-  // }
-
-  List<Widget> createTopDetailColum(Product item, double underlineWidth) {
-    return [
-      Text(
-        item.title,
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-      ),
-      Text(item.id.toString()),
-      SizedBox(
-        height: 15,
-      ),
-      Text(
-        'NT\$ ' + (item.price).toString(),
-        style: TextStyle(fontSize: 18),
-      ),
-      const SizedBox(
-        height: 10,
-      ),
-      HorizontalLine(
-        dashedWidth: underlineWidth,
-        dashedHeight: 1,
-        color: Color.fromARGB(255, 160, 164, 166),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      Row(
-        children: [
-          Text('顏色｜'),
-          buildBtnWithColorBox(Colors.green),
-          SizedBox(
-            width: 5,
-          ),
-          buildBtnWithColorBox(Colors.blue)
-        ],
-      ),
-      const SizedBox(
-        height: 20,
-      ),
-      Row(
-        children: [
-          Text('尺寸｜'),
-          buildBtnwithText(0, '1'),
-          SizedBox(
-            width: 5,
-          ),
-          buildBtnwithText(1, '2'),
-          SizedBox(
-            width: 5,
-          ),
-          buildBtnwithText(2, '3'),
-        ],
-      ),
-      SizedBox(
-        height: 25,
-      ),
-      amountAddBtn(),
-      SizedBox(
-        height: 20,
-      ),
-      SizedBox(
-        height: 45,
-        width: underlineWidth,
-        child: TextButton(
-          onPressed: () {},
-          child: Text(
-            '請選擇尺寸',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 14,
-            ),
-          ),
-          style: TextButton.styleFrom(
-            shape: BeveledRectangleBorder(),
-            backgroundColor: Color.fromARGB(255, 75, 60, 60),
-          ),
-        ),
-      ),
-      SizedBox(
-        height: 5,
-      ),
-      Text(
-        item.note,
-        style: TextStyle(fontSize: 16),
-      ),
-      Text(
-        item.description,
-        style: TextStyle(fontSize: 16),
-      ),
-      Text(
-        '產地：' + item.place,
-        style: TextStyle(fontSize: 16),
-      ),
-      Text(
-        '材質：' + item.texture,
-        style: TextStyle(fontSize: 16),
-      ),
-      Text(
-        '洗滌方式：' + item.wash,
-        style: TextStyle(fontSize: 16),
-      ),
-    ];
-  }
-
-  // List<Widget> createBottomDetailColum(Product item) {
-  //   return [
-  //     Row(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children: [
-  //         GradientText('細部說明', colors: [Colors.blue, Colors.green]),
-  //         Expanded(
-  //           child: HorizontalLine(
-  //             dashedWidth: 500,
-  //             dashedHeight: 1,
-  //             color: Colors.black,
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //     Container(
-  //       width: 570,
-  //       child: Text(item.story),
-  //     ),
-  //     SizedBox(
-  //       height: 15,
-  //     ),
-  //     createPicBox(widget.item.mainImage),
-  //     SizedBox(
-  //       height: 15,
-  //     ),
-  //     createPicBox(widget.item.mainImage),
-  //     SizedBox(
-  //       height: 15,
-  //     ),
-  //     createPicBox(widget.item.mainImage),
-  //   ];
-  // }
-}
-
-SizedBox buildBtnWithColorBox(Color color) {
-  return SizedBox(
-    height: 15,
-    width: 15,
-    child: ElevatedButton(
-      onPressed: () {
-        print('pressssss');
-      },
-      style: ElevatedButton.styleFrom(backgroundColor: color),
-      child: Text(''),
-    ),
-  );
 }
