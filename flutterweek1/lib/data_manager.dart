@@ -16,4 +16,17 @@ class ApiService {
       throw error;
     }
   }
+
+  Future<List<ProductData>> fetchHotsProducts(String key) async {
+    try {
+      final response = await _dio
+          .get('https://api.appworks-school.tw/api/1.0/products/$key');
+      final products = (response.data['data'] as List<dynamic>)
+          .map((productData) => ProductData.fromJson(productData))
+          .toList();
+      return products;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

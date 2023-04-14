@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/component/amount_btn.dart';
-import 'package:flutterweek1/component/colorbox_btn.dart';
 import 'package:flutterweek1/component/underline_view.dart';
 import 'package:flutterweek1/data_model.dart';
 
@@ -46,14 +45,6 @@ class _detailTopWidgetState extends State<detailTopWidget> {
         ),
         Row(
           children: createColorBtn(widget.item),
-          // children: [
-          //   Text('顏色｜'),
-          //   buildBtnWithColorBox(Colors.green),
-          //   SizedBox(
-          //     width: 5,
-          //   ),
-          //   buildBtnWithColorBox(Colors.blue)
-          // ],
         ),
         const SizedBox(
           height: 20,
@@ -148,7 +139,6 @@ class _detailTopWidgetState extends State<detailTopWidget> {
 
   List<Widget> createColorBtn(Product item) {
     List<Widget> colorBtnRow = [];
-    // Color color = Color(int.parse("0xFF" + colorCode));
     for (int i = 0; i < item.colors.length; i++) {
       Color color = Color(int.parse("0xFF" + item.colors[i].code));
 

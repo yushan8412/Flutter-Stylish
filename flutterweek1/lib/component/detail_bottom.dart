@@ -25,18 +25,6 @@ List<Widget> createBottomDetailColum(Product item) {
     Column(
       children: _createPicList(item),
     )
-    // SizedBox(
-    //   height: 15,
-    // ),
-    // createPicBox(item.mainImage),
-    // SizedBox(
-    //   height: 15,
-    // ),
-    // createPicBox(item.mainImage),
-    // SizedBox(
-    //   height: 15,
-    // ),
-    // createPicBox(item.mainImage),
   ];
 }
 

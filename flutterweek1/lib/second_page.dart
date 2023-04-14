@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
-import 'component/amount_btn.dart';
-import 'component/underline_view.dart';
 import 'component/detail_bottom.dart';
-import 'component/colorbox_btn.dart';
 import 'component/detail_top_widget.dart';
 
 class SecondPage extends StatefulWidget {

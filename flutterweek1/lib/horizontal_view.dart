@@ -55,10 +55,11 @@ class _HorizontalViewState extends State<HorizontalView> {
               height: 180,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: createRowContainer(),
-                ),
+                child: HomePageHeaderRow(),
+                // child: Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: createRowContainer(),
+                // ),
               ),
             ),
             Expanded(

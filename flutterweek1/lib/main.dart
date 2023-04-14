@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'vertical_view.dart';
 import 'horizontal_view.dart';
+import 'data_manager.dart';
+import 'data_model.dart';
 
 void main() => runApp(Stylish());
 
@@ -21,9 +23,37 @@ class Stylish extends StatelessWidget {
   }
 }
 
+class HomePageHeaderRow extends StatefulWidget {
+  @override
+  State<HomePageHeaderRow> createState() => _HomePageHeaderRowState();
+}
+
+class _HomePageHeaderRowState extends State<HomePageHeaderRow> {
+  final apiService = ApiService();
+
+  List<Product> girlDatas = [];
+  @override
+  void initState() {
+    super.initState();
+    apiService.fetchAllProducts('women').then((results) {
+      setState(() {
+        girlDatas = results;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: createRowContainer(),
+    );
+  }
+}
+
 List<Widget> createRowContainer() {
   List<Widget> containers = [];
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 5; i++) {
     containers.add(Container(
       height: 160,
       width: 250,
@@ -33,7 +63,7 @@ List<Widget> createRowContainer() {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: Image.network(
-              'https://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2016/03/28/20160328-024000_U6251_M142129_6df2.jpg?itok=4KQSoi0q'),
+              'https://a.cdn-hotels.com/gdcs/production87/d1048/4ed1a1e8-afa7-4640-b8ca-d1d6ccbb54c1.jpg'),
         ),
       ),
     ));
