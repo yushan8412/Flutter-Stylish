@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'data_model.dart';
-import 'component/expansiontile_list.dart';
-import 'data_manager.dart';
+import '../main.dart';
+import '../data_model.dart';
+import '../component/expansiontile_list.dart';
+import '../data_manager.dart';
 
 class VerticalView extends StatefulWidget {
   const VerticalView({super.key});

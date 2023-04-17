@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
-import 'package:flutterweek1/second_page.dart';
+import 'package:flutterweek1/detail_page/second_page.dart';
 
 Widget buildExpansionTile(String title, List<Product> items) {
   return ExpansionTile(

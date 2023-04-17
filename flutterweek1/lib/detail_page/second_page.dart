@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
-import 'component/detail_bottom.dart';
-import 'component/detail_top_widget.dart';
+import '../component/detail_bottom.dart';
+import '../component/detail_top_widget.dart';
+import 'package:bloc/bloc.dart';
 
 class SecondPage extends StatefulWidget {
   final Product item;
