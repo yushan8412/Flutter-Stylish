@@ -3,17 +3,17 @@ import 'package:flutterweek1/component/amount_btn.dart';
 import 'package:flutterweek1/component/underline_view.dart';
 import 'package:flutterweek1/data_model.dart';
 
-class detailTopWidget extends StatefulWidget {
+class DetailTopWidget extends StatefulWidget {
   final Product item;
   final double underlineWidth;
-  const detailTopWidget(
+  const DetailTopWidget(
       {super.key, required this.item, required this.underlineWidth});
 
   @override
-  State<detailTopWidget> createState() => _detailTopWidgetState();
+  State<DetailTopWidget> createState() => _DetailTopWidgetState();
 }
 
-class _detailTopWidgetState extends State<detailTopWidget> {
+class _DetailTopWidgetState extends State<DetailTopWidget> {
   int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,15 @@ class _detailTopWidgetState extends State<detailTopWidget> {
       children: [
         Text(
           widget.item.title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
         ),
         Text(widget.item.id.toString()),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Text(
-          'NT\$ ' + (widget.item.price).toString(),
-          style: TextStyle(fontSize: 18),
+          'NT\$ ${widget.item.price}',
+          style: const TextStyle(fontSize: 18),
         ),
         const SizedBox(
           height: 10,
@@ -38,9 +38,9 @@ class _detailTopWidgetState extends State<detailTopWidget> {
         HorizontalLine(
           dashedWidth: widget.underlineWidth,
           dashedHeight: 1,
-          color: Color.fromARGB(255, 160, 164, 166),
+          color: const Color.fromARGB(255, 160, 164, 166),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Row(
@@ -52,13 +52,13 @@ class _detailTopWidgetState extends State<detailTopWidget> {
         Row(
           children: createSizeBtnRow(widget.item),
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
-        amountAddBtn(
+        AmountAddBtn(
           item: widget.item,
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         SizedBox(
@@ -66,41 +66,41 @@ class _detailTopWidgetState extends State<detailTopWidget> {
           width: widget.underlineWidth,
           child: TextButton(
             onPressed: () {},
-            child: Text(
+            style: TextButton.styleFrom(
+              shape: const BeveledRectangleBorder(),
+              backgroundColor: const Color.fromARGB(255, 75, 60, 60),
+            ),
+            child: const Text(
               '請選擇尺寸',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 14,
               ),
             ),
-            style: TextButton.styleFrom(
-              shape: BeveledRectangleBorder(),
-              backgroundColor: Color.fromARGB(255, 75, 60, 60),
-            ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Text(
           widget.item.note,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
         Text(
           widget.item.description,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
         Text(
-          '產地：' + widget.item.place,
-          style: TextStyle(fontSize: 16),
+          '產地：${widget.item.place}',
+          style: const TextStyle(fontSize: 16),
         ),
         Text(
-          '材質：' + widget.item.texture,
-          style: TextStyle(fontSize: 16),
+          '材質：${widget.item.texture}',
+          style: const TextStyle(fontSize: 16),
         ),
         Text(
-          '洗滌方式：' + widget.item.wash,
-          style: TextStyle(fontSize: 16),
+          '洗滌方式：${widget.item.wash}',
+          style: const TextStyle(fontSize: 16),
         ),
       ],
     );
@@ -125,12 +125,12 @@ class _detailTopWidgetState extends State<detailTopWidget> {
                     borderRadius: BorderRadius.circular(18))),
             child: Text(
               item.sizes[i],
-              style: TextStyle(fontSize: 8),
+              style: const TextStyle(fontSize: 8),
             ),
           ),
         ),
       );
-      sizeBtnRow.add(SizedBox(
+      sizeBtnRow.add(const SizedBox(
         width: 5,
       ));
     }
@@ -140,7 +140,7 @@ class _detailTopWidgetState extends State<detailTopWidget> {
   List<Widget> createColorBtn(Product item) {
     List<Widget> colorBtnRow = [];
     for (int i = 0; i < item.colors.length; i++) {
-      Color color = Color(int.parse("0xFF" + item.colors[i].code));
+      Color color = Color(int.parse("0xFF${item.colors[i].code}"));
 
       colorBtnRow.add(
         Container(
@@ -151,11 +151,11 @@ class _detailTopWidgetState extends State<detailTopWidget> {
             onTap: () {
               print('pressssss');
             },
-            child: Text(''),
+            child: const Text(''),
           ),
         ),
       );
-      colorBtnRow.add(SizedBox(
+      colorBtnRow.add(const SizedBox(
         width: 5,
       ));
     }

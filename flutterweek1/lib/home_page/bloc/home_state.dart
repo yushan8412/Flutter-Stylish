@@ -5,12 +5,10 @@ abstract class HomeState extends Equatable {}
 
 class HomeLoadingState extends HomeState {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
 class HomeLoadedState extends HomeState {
-  // HomeLoadedState(this.womenDatas);
    List<Product> womenDatas = [];
    List<Product> menDatas = [];
    List<Product> accessoriesDatas = [];

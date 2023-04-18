@@ -7,7 +7,7 @@ Widget buildExpansionTile(String title, List<Product> items) {
     title: Center(
       child: Text(
         title,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
       ),
     ),
     children: [
@@ -34,11 +34,11 @@ Widget buildExpansionTile(String title, List<Product> items) {
               ),
               child: Row(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 130,
                     width: 100,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                       ),
@@ -58,7 +58,7 @@ Widget buildExpansionTile(String title, List<Product> items) {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(items[index].title),
-                      Text('NT\$ ' + items[index].price.toString()),
+                      Text('NT\$ ${items[index].price}'),
                     ],
                   ),
                 ],
@@ -66,7 +66,7 @@ Widget buildExpansionTile(String title, List<Product> items) {
             ),
           );
         },
-        separatorBuilder: (context, _) => SizedBox(
+        separatorBuilder: (context, _) => const SizedBox(
           height: 8,
         ),
         // itemCount: items.length,

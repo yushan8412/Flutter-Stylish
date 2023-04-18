@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
 
-class amountAddBtn extends StatefulWidget {
+class AmountAddBtn extends StatefulWidget {
   final Product item;
-  const amountAddBtn({super.key, required this.item});
+  const AmountAddBtn({super.key, required this.item});
 
   @override
-  State<amountAddBtn> createState() => _amountAddBtnState();
+  State<AmountAddBtn> createState() => _AmountAddBtnState();
 }
 
-class _amountAddBtnState extends State<amountAddBtn> {
+class _AmountAddBtnState extends State<AmountAddBtn> {
   int selectedAmount = 1;
   // textField 裡面的文字
 

@@ -7,6 +7,5 @@ abstract class HomeEvent extends Equatable {
 
 class LoadItemEvent extends HomeEvent {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }

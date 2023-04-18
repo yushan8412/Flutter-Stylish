@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
 import '../component/detail_bottom.dart';
 import '../component/detail_top_widget.dart';
-import 'package:bloc/bloc.dart';
 
 class SecondPage extends StatefulWidget {
   final Product item;
@@ -24,7 +23,7 @@ class _SecondPageState extends State<SecondPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Container(
+        title: SizedBox(
           height: 70,
           width: 200,
           child: Image.network(
@@ -45,7 +44,7 @@ class _SecondPageState extends State<SecondPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   size.width >= 600
-                      ? Container(
+                      ? SizedBox(
                           height: 400,
                           width: 300,
                           child: FittedBox(
@@ -63,22 +62,22 @@ class _SecondPageState extends State<SecondPage> {
                             child: Image.network(widget.item.mainImage),
                           ),
                         )
-                      : SizedBox.shrink(),
-                  SizedBox(
+                      : const SizedBox.shrink(),
+                  const SizedBox(
                     width: 15,
                   ),
                   size.width >= 600
-                      ? detailTopWidget(
+                      ? DetailTopWidget(
                           item: widget.item,
                           underlineWidth: 260,
                         )
-                      : SizedBox.shrink(),
+                      : const SizedBox.shrink(),
                 ],
               ),
               size.width < 600
-                  ? Container(
+                  ? SizedBox(
                       width: 350,
-                      child: detailTopWidget(
+                      child: DetailTopWidget(
                         item: widget.item,
                         underlineWidth: 500,
                       ),
@@ -88,23 +87,23 @@ class _SecondPageState extends State<SecondPage> {
                 height: 20,
               ),
               size.width >= 600
-                  ? Container(
+                  ? SizedBox(
                       width: 570,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: createBottomDetailColum(widget.item),
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
               size.width < 600
-                  ? Container(
+                  ? SizedBox(
                       width: 350,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: createBottomDetailColum(widget.item),
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

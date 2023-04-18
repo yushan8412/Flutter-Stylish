@@ -19,8 +19,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             await _apiService.fetchAllProducts('accessories');
         emit(HomeLoadedState(womenDatas, menDatas, accessoriesDatas));
       } catch (e) {}
-      print('123123123');
-      // emit(HomeLoadedState());
     });
   }
 }
