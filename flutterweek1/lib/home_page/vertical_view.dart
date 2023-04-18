@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterweek1/home_page/bloc/home_bloc.dart';
 import '../main.dart';
 import '../data_model.dart';
-import '../component/expansiontile_list.dart';
+import 'view/expansiontile_list.dart';
 import '../data_manager.dart';
 
 class VerticalView extends StatelessWidget {

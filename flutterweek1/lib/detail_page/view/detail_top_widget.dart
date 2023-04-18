@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweek1/component/amount_btn.dart';
-import 'package:flutterweek1/component/underline_view.dart';
+import 'package:flutterweek1/detail_page/view/amount_btn.dart';
+import 'package:flutterweek1/detail_page/view/underline_view.dart';
 import 'package:flutterweek1/data_model.dart';
 
 class DetailTopWidget extends StatefulWidget {
@@ -148,8 +148,7 @@ class _DetailTopWidgetState extends State<DetailTopWidget> {
           width: 15,
           decoration: BoxDecoration(color: color),
           child: InkWell(
-            onTap: () {
-            },
+            onTap: () {},
             child: const Text(''),
           ),
         ),
