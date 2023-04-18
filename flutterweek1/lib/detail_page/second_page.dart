@@ -52,9 +52,9 @@ class _SecondPageState extends State<SecondPage> {
                             child: Image.network(widget.item.mainImage),
                           ),
                         )
-                      : SizedBox.shrink(),
+                      : const SizedBox.shrink(),
                   size.width < 600
-                      ? Container(
+                      ? SizedBox(
                           height: 400,
                           width: 350,
                           child: FittedBox(

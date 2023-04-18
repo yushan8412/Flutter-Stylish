@@ -149,7 +149,6 @@ class _DetailTopWidgetState extends State<DetailTopWidget> {
           decoration: BoxDecoration(color: color),
           child: InkWell(
             onTap: () {
-              print('pressssss');
             },
             child: const Text(''),
           ),

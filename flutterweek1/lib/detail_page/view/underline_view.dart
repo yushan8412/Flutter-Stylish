@@ -7,7 +7,7 @@ final double dashedWidth;
 final double dashedHeight;
 final Color color;
 
-HorizontalLine({
+const HorizontalLine({super.key, 
     this.dashedHeight = 1,
     this.dashedWidth = double.infinity,
     this.color = const Color(0xFF979797),

@@ -26,7 +26,7 @@ class ApiService {
           .toList();
       return products;
     } catch (error) {
-      throw error;
+      rethrow;
     }
   }
 }

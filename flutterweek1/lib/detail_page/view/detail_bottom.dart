@@ -8,8 +8,8 @@ List<Widget> createBottomDetailColum(Product item) {
     Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        GradientText('細部說明', colors: [Colors.blue, Colors.green]),
-        Expanded(
+        GradientText('細部說明', colors: const [Colors.blue, Colors.green]),
+        const Expanded(
           child: HorizontalLine(
             dashedWidth: 500,
             dashedHeight: 1,
@@ -18,7 +18,7 @@ List<Widget> createBottomDetailColum(Product item) {
         ),
       ],
     ),
-    Container(
+    SizedBox(
       width: 570,
       child: Text(item.story),
     ),
@@ -42,7 +42,7 @@ List<Widget> _createPicList(Product item) {
   for (int i = 0; i < item.images.length; i++) {
     imageList.add(createPicBox(item.images[i]));
     imageList.add(
-      SizedBox(
+      const SizedBox(
         height: 15,
       ),
     );

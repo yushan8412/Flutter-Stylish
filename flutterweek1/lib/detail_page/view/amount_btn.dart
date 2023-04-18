@@ -32,15 +32,15 @@ class _AmountAddBtnState extends State<AmountAddBtn> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('數量｜'),
-        SizedBox(
+        const Text('數量｜'),
+        const SizedBox(
           width: 10,
         ),
         Container(
           width: 20,
           height: 20,
           decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Colors.black),
+              const BoxDecoration(shape: BoxShape.circle, color: Colors.black),
           child: IconButton(
               color: Colors.amber, // 更改按鈕背景色
               splashColor: Colors.white,
@@ -50,13 +50,13 @@ class _AmountAddBtnState extends State<AmountAddBtn> {
                 _updateText(); //呼叫 setState() 通知物件狀態改變
               },
               iconSize: 15,
-              padding: EdgeInsets.all(2),
-              icon: Icon(
+              padding: const EdgeInsets.all(2),
+              icon: const Icon(
                 Icons.remove,
                 color: Colors.white,
               )),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         SizedBox(
@@ -65,21 +65,21 @@ class _AmountAddBtnState extends State<AmountAddBtn> {
           child: TextField(
             controller: tfController,
             textAlign: TextAlign.center, // 設置文字置中
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 contentPadding: EdgeInsets.symmetric(
                     vertical: 8.0, horizontal: 10.0), // 設置內邊距
                 border: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black))),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Container(
           width: 20,
           height: 20,
           decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Colors.black),
+              const BoxDecoration(shape: BoxShape.circle, color: Colors.black),
           child: IconButton(
               color: Colors.amber, // 更改按鈕背景色
               splashColor: Colors.white,
@@ -90,8 +90,8 @@ class _AmountAddBtnState extends State<AmountAddBtn> {
                 // apiService.fetchAllProducts();
               },
               iconSize: 15,
-              padding: EdgeInsets.all(2),
-              icon: Icon(
+              padding: const EdgeInsets.all(2),
+              icon: const Icon(
                 Icons.add,
                 color: Colors.white,
               )),

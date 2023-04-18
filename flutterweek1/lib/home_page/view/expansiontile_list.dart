@@ -43,14 +43,14 @@ Widget buildExpansionTile(String title, List<Product> items) {
                         bottomLeft: Radius.circular(10),
                       ),
                       child: FittedBox(
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                         child: Image.network(
                           items[index].mainImage,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Column(
@@ -69,7 +69,6 @@ Widget buildExpansionTile(String title, List<Product> items) {
         separatorBuilder: (context, _) => const SizedBox(
           height: 8,
         ),
-        // itemCount: items.length,
       ),
     ],
   );

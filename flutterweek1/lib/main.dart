@@ -5,9 +5,11 @@ import 'home_page/horizontal_view.dart';
 import 'data_manager.dart';
 import 'data_model.dart';
 
-void main() => runApp(Stylish());
+void main() => runApp(const Stylish());
 
 class Stylish extends StatelessWidget {
+  const Stylish({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +20,7 @@ class Stylish extends StatelessWidget {
             if (constraints.maxWidth >= 600) {
               return HorizontalView(context);
             } else {
-              return VerticalView();
+              return const VerticalView();
             }
           },
         ),
@@ -28,6 +30,8 @@ class Stylish extends StatelessWidget {
 }
 
 class HomePageHeaderRow extends StatefulWidget {
+  const HomePageHeaderRow({super.key});
+
   @override
   State<HomePageHeaderRow> createState() => _HomePageHeaderRowState();
 }

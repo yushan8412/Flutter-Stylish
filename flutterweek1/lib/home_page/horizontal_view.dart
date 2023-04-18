@@ -28,7 +28,8 @@ class HorizontalView extends StatelessWidget {
           builder: (context, state) {
             if (state is HomeLoadingState) {
               return Container(
-                  decoration: const BoxDecoration(color: Colors.amber));
+                  alignment: Alignment.center,
+                  child: const CircularProgressIndicator());
             }
             if (state is HomeLoadedState) {
               List<Product> womenItems = state.womenDatas;
@@ -40,7 +41,7 @@ class HorizontalView extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       height: 180,
-                      child: SingleChildScrollView(
+                      child: const SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: HomePageHeaderRow(),
                       ),
@@ -101,7 +102,7 @@ class HorizontalView extends StatelessWidget {
               );
             }
             return Container(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: const BoxDecoration(color: Colors.blue),
             );
           },
         ),

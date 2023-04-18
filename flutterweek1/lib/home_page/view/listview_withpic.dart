@@ -20,19 +20,19 @@ Widget createlistView(List<Product> itemsData) {
                 border: Border.all(), borderRadius: BorderRadius.circular(10)),
             child: Row(
               children: [
-                Container(
+                SizedBox(
                     height: 130,
                     width: 100,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10)),
                       child: FittedBox(
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                         child: Image.network(itemsData[index].mainImage),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Expanded(
@@ -41,7 +41,7 @@ Widget createlistView(List<Product> itemsData) {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(itemsData[index].title),
-                      Text('NT\$ ' + itemsData[index].price.toString())
+                      Text('NT\$ ${itemsData[index].price}')
                     ],
                   ),
                 )
@@ -50,7 +50,7 @@ Widget createlistView(List<Product> itemsData) {
           ),
         );
       },
-      separatorBuilder: (context, _) => SizedBox(
+      separatorBuilder: (context, _) => const SizedBox(
             height: 8,
           ),
       itemCount: itemsData.length);

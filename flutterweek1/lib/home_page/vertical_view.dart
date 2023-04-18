@@ -27,7 +27,9 @@ class VerticalView extends StatelessWidget {
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoadingState) {
-              return Container(decoration: BoxDecoration(color: Colors.amber));
+              return Container(
+                  alignment: Alignment.center,
+                  child: const CircularProgressIndicator());
             }
             if (state is HomeLoadedState) {
               List<Product> womenItems = state.womenDatas;
@@ -56,7 +58,7 @@ class VerticalView extends StatelessWidget {
               );
             }
             return Container(
-              decoration: BoxDecoration(color: Colors.grey),
+              decoration: const BoxDecoration(color: Colors.grey),
             );
           },
         ),
@@ -68,7 +70,7 @@ class VerticalView extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       height: 180,
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: HomePageHeaderRow(),
       ),
