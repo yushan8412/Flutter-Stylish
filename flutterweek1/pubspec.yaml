@@ -39,6 +39,7 @@ dependencies:
   dio: ^5.1.1
   flutter_bloc: ^8.1.2
   equatable: ^2.0.5
+  flutter_tappay: ^0.3.0+2
 
 dev_dependencies:
   flutter_test:

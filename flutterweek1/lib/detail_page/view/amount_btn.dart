@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterweek1/data_model.dart';
 
 class AmountAddBtn extends StatefulWidget {
@@ -11,7 +12,24 @@ class AmountAddBtn extends StatefulWidget {
 
 class _AmountAddBtnState extends State<AmountAddBtn> {
   int selectedAmount = 1;
+  static const platform = MethodChannel('getXcodeMesg');
+  String _mesg = '';
   // textField 裡面的文字
+
+  Future<void> _getMesg() async {
+    String mesgFromNative;
+    try {
+      // final batteryLevel = await platform.invokeMethod('getBatteryLevel');
+      mesgFromNative = await platform.invokeMethod('getMesgFromNative');
+    } on PlatformException catch (e) {
+      mesgFromNative = 'failed~~~~~~';
+    }
+
+    setState(() {
+      _mesg = mesgFromNative;
+      print(_mesg);
+    });
+  }
 
   final tfController = TextEditingController();
 
@@ -46,6 +64,7 @@ class _AmountAddBtnState extends State<AmountAddBtn> {
               splashColor: Colors.white,
               highlightColor: Colors.white,
               onPressed: () {
+                _getMesg();
                 selectedAmount -= 1;
                 _updateText(); //呼叫 setState() 通知物件狀態改變
               },
@@ -104,6 +123,7 @@ class _AmountAddBtnState extends State<AmountAddBtn> {
     setState(() {
       //寫入畫面有需要更新的部分
       tfController.text = selectedAmount.toString();
+      // tfController.text = selectedAmountString;
     });
   }
 }

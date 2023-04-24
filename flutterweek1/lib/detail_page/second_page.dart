@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterweek1/data_model.dart';
+import '../cart_page/cart_page.dart';
 import 'view/detail_bottom.dart';
 import 'view/detail_top_widget.dart';
 
@@ -22,17 +23,31 @@ class _SecondPageState extends State<SecondPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: SizedBox(
-          height: 70,
-          width: 200,
-          child: Image.network(
-            'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png',
-            height: 100,
-            width: 100,
+          backgroundColor: Colors.white,
+          title: SizedBox(
+            height: 70,
+            width: 200,
+            child: Image.network(
+              'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png',
+              height: 100,
+              width: 100,
+            ),
           ),
-        ),
-      ),
+          actions: <Widget>[
+            Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CartPage()));
+                  },
+                  child: const Icon(
+                    Icons.shopping_cart,
+                    size: 35.0,
+                    color: Color.fromARGB(255, 171, 171, 171),
+                  ),
+                )),
+          ]),
       body: SingleChildScrollView(
         child: Center(
           child: Column(

@@ -16,14 +16,27 @@ class VerticalView extends StatelessWidget {
         ..add(LoadItemEvent()),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: SizedBox(
-            height: 70,
-            width: 200,
-            child: Image.network(
-                'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'),
-          ),
-        ),
+            backgroundColor: Colors.white,
+            title: SizedBox(
+              height: 70,
+              width: 200,
+              child: Image.network(
+                  'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'),
+            ),
+            actions: <Widget>[
+              Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      print('123123123');
+                    },
+                    child: const Icon(
+                      Icons.shopping_cart,
+                      size: 35.0,
+                      color: Color.fromARGB(255, 171, 171, 171),
+                    ),
+                  )),
+            ]),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoadingState) {

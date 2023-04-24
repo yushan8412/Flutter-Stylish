@@ -17,5 +17,7 @@ class HomeLoadedState extends HomeState {
 
   @override
   List<Object?> get props => [];
-  //womenDatas, menDatas, accessoriesDatas]
+  //當又送出一樣的 Event 時，要吐出 state 的時候會比較這個 props list 裡面的物件是否相同，
+  //若相同則不需要重劃 UI，
+  //所以在選擇顏色尺寸時才會看到差異
 }

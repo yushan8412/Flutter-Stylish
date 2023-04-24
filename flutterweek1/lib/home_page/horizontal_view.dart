@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutterweek1/cart_page/cart_page.dart';
 import 'package:flutterweek1/data_model.dart';
 import 'package:flutterweek1/home_page/bloc/home_bloc.dart';
 import '../main.dart';
 import 'view/listview_withpic.dart';
 import '../data_manager.dart';
+import 'package:flutterweek1/cart_page/cart_page.dart';
 
 class HorizontalView extends StatelessWidget {
   const HorizontalView(BuildContext context, {super.key});
@@ -16,14 +18,28 @@ class HorizontalView extends StatelessWidget {
         ..add(LoadItemEvent()),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: SizedBox(
-            height: 70,
-            width: 200,
-            child: Image.network(
-                'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'),
-          ),
-        ),
+            backgroundColor: Colors.white,
+            title: SizedBox(
+              height: 70,
+              width: 200,
+              child: Image.network(
+                  'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'),
+            ),
+            actions: <Widget>[
+              Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => CartPage()));
+                    },
+                    child: const Icon(
+                      Icons.shopping_cart,
+                      size: 35.0,
+                      color: Color.fromARGB(255, 171, 171, 171),
+                    ),
+                  )),
+            ]),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoadingState) {
