@@ -5,6 +5,7 @@ import '../main.dart';
 import '../data_model.dart';
 import 'view/expansiontile_list.dart';
 import '../data_manager.dart';
+import 'package:flutterweek1/cart_page/cart_page.dart';
 
 class VerticalView extends StatelessWidget {
   const VerticalView({super.key});
@@ -23,6 +24,22 @@ class VerticalView extends StatelessWidget {
             child: Image.network(
                 'https://cdn.discordapp.com/attachments/1083197828467265564/1087723351893610516/Image_Logo02.png'),
           ),
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 20),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CartPage()));
+                },
+                child: const Icon(
+                  Icons.shopping_cart,
+                  size: 35.0,
+                  color: Color.fromARGB(255, 171, 171, 171),
+                ),
+              ),
+            )
+          ],
         ),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterweek1/cart_page/cart_page.dart';
 import 'package:flutterweek1/data_model.dart';
 import 'view/detail_bottom.dart';
 import 'view/detail_top_widget.dart';
+import 'package:flutterweek1/cart_page/cart_page.dart';
 
 class SecondPage extends StatefulWidget {
   final Product item;
@@ -32,6 +34,22 @@ class _SecondPageState extends State<SecondPage> {
             width: 100,
           ),
         ),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CartPage()));
+              },
+              child: const Icon(
+                Icons.shopping_cart,
+                size: 35.0,
+                color: Color.fromARGB(255, 171, 171, 171),
+              ),
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
