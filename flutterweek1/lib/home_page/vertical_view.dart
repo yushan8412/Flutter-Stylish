@@ -26,11 +26,13 @@ class VerticalView extends StatelessWidget {
           ),
           actions: <Widget>[
             Padding(
-              padding: EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(right: 20),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CartPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CartPage()));
                 },
                 child: const Icon(
                   Icons.shopping_cart,
