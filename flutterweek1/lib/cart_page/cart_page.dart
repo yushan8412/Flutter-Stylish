@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterweek1/map_page/map_page.dart';
+import 'package:flutterweek1/map_page/map_page.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
-  // static const platform = MethodChannel('samples.flutter.dev/battery');
 
   @override
   State<CartPage> createState() => _CartPageState();
 }
 
 class _CartPageState extends State<CartPage> {
-  String _batteryLevel = 'Unknown battery level.';
+  String _batteryLevel = 'Flutttttter';
 
   static const platform = MethodChannel('samples.flutter.dev/battery');
-
-  @override
-  void initState() {
-    super.initState();
-    // _getTest();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +29,34 @@ class _CartPageState extends State<CartPage> {
             width: 100,
           ),
         ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          ElevatedButton(
-            onPressed: _getBatteryLevel,
-            child: const Text('Get Battery Level'),
-          ),
-          Text(_batteryLevel),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MapSample()));
+              },
+              child: const Icon(
+                Icons.map_outlined,
+                size: 35.0,
+                color: Color.fromARGB(255, 75, 76, 68),
+              ),
+            ),
+          )
         ],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: _getBatteryLevel,
+              child: const Text('Get String'),
+            ),
+            Text(_batteryLevel),
+          ],
+        ),
       ),
     );
   }
@@ -52,7 +65,7 @@ class _CartPageState extends State<CartPage> {
     String batteryLevel;
     try {
       final String result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = 'issssss from $result % .';
+      batteryLevel = 'issssss from $result  .';
     } on PlatformException catch (e) {
       batteryLevel = "Failed to get string: '${e.message}'.";
     }

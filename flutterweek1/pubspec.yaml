@@ -39,6 +39,7 @@ dependencies:
   dio: ^5.1.1
   flutter_bloc: ^8.1.2
   equatable: ^2.0.5
+  google_maps_flutter: ^2.2.5
 
 dev_dependencies:
   flutter_test:
