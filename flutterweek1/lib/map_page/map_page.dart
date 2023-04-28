@@ -12,7 +12,6 @@ const double defaultPadding = 16.0;
 //     // TODO: implement build
 //     throw UnimplementedError();
 //   }
-
 // }
 class MapSample extends StatefulWidget {
   const MapSample({Key? key}) : super(key: key);
@@ -62,6 +61,11 @@ class MapSampleState extends State<MapSample> {
               markerId: MarkerId("taipei101"),
               position: LatLng(25.033671, 121.564427),
               infoWindow: InfoWindow(title: 'Taipei 101', snippet: '台灣最高的建築物')),
+          const Marker(
+            markerId: MarkerId("river"),
+            position: LatLng(25.076865, 121.536683),
+            infoWindow: InfoWindow(title: '河濱公園', snippet: '台北散步好去處'),
+          )
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
