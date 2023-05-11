@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterweek1/map_page/map_page.dart';
+import 'package:flutterweek1/ar/arphoto.dart';
+import 'package:flutterweek1/ar/earthpage.dart';
 import 'package:flutterweek1/map_page/map_page.dart';
 
 class CartPage extends StatefulWidget {
@@ -55,6 +56,20 @@ class _CartPageState extends State<CartPage> {
               child: const Text('Get String'),
             ),
             Text(_batteryLevel),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => EarthPage()));
+              },
+              child: const Text('Try AR'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PanoramaPage()));
+              },
+              child: const Text('Try AR2'),
+            )
           ],
         ),
       ),
